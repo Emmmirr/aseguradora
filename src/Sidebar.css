@@ -1,0 +1,55 @@
+
+.sidebar-wrapper {
+    position: relative;
+    height: 100vh;
+    transition: all 0.3s;
+  }
+  
+  .sidebar {
+    width: 240px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: width 0.3s ease; /* Solo aplicar transición al ancho */
+  }
+  
+  .sidebar-wrapper.collapsed .sidebar {
+    width: 60px;
+    
+    
+  }
+  
+  .sidebar .nav-link {
+    padding: 0.7rem 0.7rem;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: all 0.3s;
+    
+  }
+  
+  .sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar .nav-link.active {
+    
+    background-color: #432626;
+
+  }
+  
+  .toggle-btn {
+    background: transparent;
+    border: none;
+    transition: transform 0.s;
+  }
+  
+  .toggle-btn.rotate-180 {
+    transform: rotate(180deg);
+  }
+  
+.bg-custom {
+    background-color: #7E3737; /* Reemplaza con tu color deseado (hex, rgb, etc) */
+  }
+  

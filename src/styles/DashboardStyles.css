@@ -1,0 +1,542 @@
+:root {
+    --app-bg-color: #FFFFFF; /* Fondo principal, podría ser un gris muy claro como #F7F7F7 */
+    --app-text-color: #171717; /* Texto principal oscuro */
+    --app-text-muted-color: #6B7280; /* Texto secundario/grisáceo */
+    --app-border-color: #E5E7EB; /* Bordes sutiles */
+    --app-primary-color: #4F46E5; /* Un azul/violeta como primario (ajustar) */
+    --app-primary-color-light: #EEF2FF; /* Fondo claro para botones/badges primarios */
+    --app-success-color: #10B981; /* Verde para éxito */
+    --app-success-bg-light: #D1FAE5;
+    --app-inactive-color: #F59E0B; /* Naranja/Amarillo para inactivo/pendiente */
+    --app-inactive-bg-light: #FEF3C7;
+     --app-danger-color: #EF4444; /* Rojo para peligro/eliminar */
+     --app-danger-bg-light: #FEE2E2;
+    --app-control-bg-color: #FFFFFF; /* Fondo de inputs/selects */
+    --app-control-hover-bg-color: #F9FAFB; /* Fondo ligero al pasar el ratón */
+    --app-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Fuente preferida */
+    --app-border-radius: 6px; /* Radio de borde sutil */
+    --app-control-height: 36px; /* Altura estándar para inputs/selects/botones */
+    --sidebar-width-expanded: 240px;
+    --sidebar-width-collapsed: 72px; /* Ajusta según iconos/padding */
+    --sidebar-bg-color: #FFFFFF; /* Fondo blanco o gris muy claro F7F7F7 */
+    --sidebar-border-color: #E5E7EB; /* Borde derecho sutil */
+    --sidebar-text-color: #374151; /* Texto principal gris oscuro */
+    --sidebar-text-muted-color: #6B7280; /* Texto secundario/iconos */
+    --sidebar-link-hover-bg: #F3F4F6; /* Fondo hover (gris claro) */
+    --sidebar-link-active-bg: #E5E7EB; /* Fondo activo (gris un poco más oscuro) */
+    --sidebar-link-active-text: #111827; /* Texto activo (más oscuro) */
+    --sidebar-icon-size: 18px; /* Tamaño base iconos */
+    --sidebar-transition: width 0.2s ease-in-out; /* Transición suave */
+}
+
+/* --- Estilos Base --- */
+body {
+    font-family: var(--app-font-family);
+    background-color: var(--app-bg-color); /* Fondo general de la app */
+    color: var(--app-text-color);
+    font-size: 14px; /* Tamaño base */
+}
+
+/* Contenedor principal del contenido de la página */
+.page-content-container {
+    padding: 24px; /* Ajusta el padding general */
+}
+
+/* Cabecera de página */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--app-text-color);
+}
+
+/* --- Estilos de Controles (Filtros, etc.) --- */
+.controls-bar {
+    /* Estilos para la barra que contiene filtros/pestañas */
+}
+
+.control-filter.form-select {
+    font-size: 13px;
+    border-color: var(--app-border-color);
+    border-radius: var(--app-border-radius);
+    height: var(--app-control-height);
+    padding: 0.3rem 1.5rem 0.3rem 0.75rem; /* Ajustar padding para flecha */
+    background-color: var(--app-control-bg-color);
+    color: var(--app-text-muted-color);
+    max-width: 200px; /* Limitar ancho si es necesario */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.control-filter.form-select:hover {
+     background-color: var(--app-control-hover-bg-color);
+}
+.control-filter.form-select:focus {
+    border-color: var(--app-primary-color);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2); /* Sombra focus sutil */
+    color: var(--app-text-color);
+}
+
+/* --- Estilos de Tabla --- */
+.table-container {
+    background-color: #fff; /* Fondo blanco para la tabla si el fondo general es gris */
+    border: 1px solid var(--app-border-color); /* Borde sutil alrededor */
+    border-radius: var(--app-border-radius);
+    overflow: hidden; /* Para que el borde redondeado funcione */
+}
+
+.table-responsive {
+    /* Bootstrap ya le da overflow-x: auto; */
+    /* Asegúrate de que NINGÚN estilo tuyo le ponga overflow: visible o hidden */
+     overflow-y: visible; /* Permite que el contenido vertical (como dropdowns) no se corte si es necesario */
+}
+
+.app-table {
+    border-collapse: collapse; /* Importante para quitar espacios */
+    width: 100%;
+    font-size: 13px; /* Tamaño de fuente en tabla */
+}
+
+.app-table thead th {
+    background-color: #fff; /* Fondo cabecera (o --app-bg-color si es diferente) */
+    color: var(--app-text-muted-color);
+    font-weight: 500;
+    text-align: left;
+    padding: 10px 16px; /* Padding celdas cabecera */
+    border-bottom: 1px solid var(--app-border-color); /* Línea inferior cabecera */
+    white-space: nowrap; /* Evitar que títulos se partan */
+}
+
+.app-table tbody td {
+    padding: 12px 16px; /* Padding celdas cuerpo */
+    color: var(--app-text-color);
+    border-bottom: 1px solid var(--app-border-color); /* Línea entre filas */
+    vertical-align: middle;
+}
+
+.app-table tbody tr:last-child td {
+    border-bottom: none; /* Sin borde en la última fila */
+}
+
+.app-table .text-muted {
+    color: var(--app-text-muted-color) !important;
+}
+.app-table .description-cell {
+    /* Opcional: Limitar ancho o número de líneas */
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Indicador de estado */
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 8px;
+    border-radius: 12px; /* Hacerlo tipo "pill" */
+    font-weight: 500;
+    font-size: 12px;
+}
+.status-indicator .status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.status-success {
+    color: var(--app-success-color);
+    background-color: var(--app-success-bg-light);
+}
+.status-success .status-dot {
+    background-color: var(--app-success-color);
+}
+
+.status-inactive {
+    color: var(--app-inactive-color);
+    background-color: var(--app-inactive-bg-light);
+}
+.status-inactive .status-dot {
+    background-color: var(--app-inactive-color);
+}
+
+/* Botones de acción en tabla */
+.action-buttons {
+    display: inline-flex;
+    gap: 4px; /* Espacio entre botones */
+}
+
+.btn-icon {
+    padding: 4px;
+    line-height: 1;
+    border-radius: var(--app-border-radius);
+    background: none;
+    border: none;
+    color: var(--app-text-muted-color);
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+.btn-icon:hover {
+    background-color: var(--app-control-hover-bg-color);
+    color: var(--app-text-color);
+}
+.btn-icon.text-danger:hover {
+     color: var(--app-danger-color) !important;
+     background-color: var(--app-danger-bg-light);
+}
+
+/* Celda "sin datos" */
+.no-data-cell {
+    /* Estilos específicos si son necesarios */
+}
+
+
+/* --- Estilos de Formulario --- */
+.form-container {
+     background-color: #fff; /* Fondo blanco si el fondo general es gris */
+     padding: 24px;
+     border: 1px solid var(--app-border-color);
+     border-radius: var(--app-border-radius);
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--app-text-color);
+}
+
+.form-control-app,
+.form-select-app {
+    font-size: 14px;
+    border: 1px solid var(--app-border-color);
+    border-radius: var(--app-border-radius);
+    height: var(--app-control-height);
+    padding: 0.5rem 0.75rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-control-app:focus,
+.form-select-app:focus {
+    border-color: var(--app-primary-color);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+    outline: none;
+}
+.form-control-app.is-invalid,
+.form-select-app.is-invalid {
+    border-color: var(--app-danger-color) !important; /* Bootstrap suele usar !important */
+}
+.form-control-app.is-invalid:focus,
+.form-select-app.is-invalid:focus {
+     box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+}
+
+.input-group-text-app {
+    background-color: var(--app-control-hover-bg-color);
+    border: 1px solid var(--app-border-color);
+    border-right: none; /* Quitar borde derecho */
+    border-radius: var(--app-border-radius) 0 0 var(--app-border-radius);
+    color: var(--app-text-muted-color);
+    height: var(--app-control-height);
+    padding: 0.5rem 0.75rem;
+}
+/* Ajuste para que el input pegado no tenga borde izquierdo redondeado */
+.input-group > .form-control-app:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* --- Estilos de Botones Principales --- */
+
+.btn {
+    border-radius: var(--app-border-radius);
+    font-weight: 500;
+    font-size: 13px;
+    padding: 0 12px; /* Ajustar padding horizontal */
+    height: var(--app-control-height); /* Altura consistente */
+    display: inline-flex; /* Para alinear icono y texto */
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent; /* Borde por defecto transparente */
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.btn svg { /* Ajustar iconos dentro de botones */
+    margin-bottom: 1px; /* Pequeño ajuste vertical */
+}
+
+/* Botón "Agregar Plan" estilo primario claro */
+.btn-light-primary {
+    background-color: var(--app-primary-color-light);
+    border-color: var(--app-primary-color-light);
+    color: var(--app-primary-color);
+}
+.btn-light-primary:hover {
+    background-color: #DBEAFE; /* Un poco más oscuro */
+    border-color: #DBEAFE;
+    color: var(--app-primary-color);
+}
+
+/* Botones de formulario */
+.btn-app { /* Botón primario del formulario */
+    background-color: var(--app-primary-color);
+    border-color: var(--app-primary-color);
+    color: #fff;
+}
+.btn-app:hover {
+    background-color: #4338CA; /* Más oscuro */
+    border-color: #4338CA;
+    color: #fff;
+}
+.btn-app:disabled {
+     opacity: 0.7;
+     cursor: not-allowed;
+}
+
+
+.btn-app-secondary { /* Botón secundario/cancelar */
+    background-color: #fff;
+    border-color: var(--app-border-color);
+    color: var(--app-text-muted-color);
+}
+.btn-app-secondary:hover {
+    background-color: var(--app-control-hover-bg-color);
+    border-color: var(--app-border-color);
+     color: var(--app-text-color);
+}
+.btn-app-secondary:disabled {
+     opacity: 0.7;
+     cursor: not-allowed;
+}
+
+.form-actions {
+    /* Contenedor de botones de formulario */
+     border-top: 1px solid var(--app-border-color); /* Línea separadora si se usa */
+     /* Podría tener display flex para alinear botones si es necesario */
+}
+
+/* --- Footer --- */
+.page-footer {
+    font-size: 12px;
+    text-align: right; /* O donde prefieras */
+}
+
+.app-sidebar {
+    width: var(--sidebar-width-expanded);
+    height: 100vh; /* Ocupa toda la altura */
+    position: fixed; /* Fijo en la pantalla */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--sidebar-bg-color);
+    border-right: 1px solid var(--sidebar-border-color);
+    transition: var(--sidebar-transition);
+    overflow-x: hidden; /* Evitar scroll horizontal al colapsar */
+    padding: 12px 8px; /* Padding general interno */
+    z-index: 1000; /* Asegurar que esté por encima */
+}
+
+.app-sidebar.collapsed {
+    width: var(--sidebar-width-collapsed);
+}
+
+/* --- Cabecera del Sidebar --- */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px; /* Padding cabecera */
+    margin-bottom: 16px; /* Espacio bajo la cabecera */
+}
+
+.sidebar-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--sidebar-text-color);
+    gap: 10px; /* Espacio entre icono y texto */
+    overflow: hidden; /* Para ocultar texto al colapsar */
+    flex-grow: 1; /* Ocupa espacio disponible */
+}
+
+.logo-icon {
+    color: var(--app-primary-color); /* Color del icono del logo */
+    flex-shrink: 0; /* Evita que el icono se encoja */
+}
+
+.logo-text {
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap; /* Evita que el texto se parta */
+}
+
+/* Ocultar texto cuando está colapsado */
+.app-sidebar.collapsed .logo-text {
+    opacity: 0;
+    width: 0;
+}
+
+
+/* Botón de Colapsar/Expandir */
+.sidebar-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--sidebar-text-muted-color);
+    padding: 6px; /* Ajusta el área clickeable */
+    border-radius: var(--app-border-radius);
+    cursor: pointer;
+    display: flex; /* Para centrar el icono si es necesario */
+    align-items: center;
+    justify-content: center;
+    margin-left: auto; /* Empuja a la derecha */
+    flex-shrink: 0;
+    transition: background-color 0.15s ease;
+}
+
+.sidebar-toggle-btn:hover {
+    background-color: var(--sidebar-link-hover-bg);
+    color: var(--sidebar-text-color);
+}
+
+/* Rotación del icono de flecha */
+.sidebar-toggle-btn .chevron-icon {
+    transition: transform 0.2s ease-in-out;
+}
+.sidebar-toggle-btn .chevron-icon.collapsed {
+    transform: rotate(180deg);
+}
+
+/* --- Sección de Búsqueda --- */
+.sidebar-search-section {
+    padding: 0 8px; /* Padding horizontal para el link de búsqueda */
+    margin-bottom: 12px;
+}
+
+.search-link {
+    /* Estilo ligeramente diferente para destacar */
+    background-color: var(--sidebar-link-hover-bg); /* Fondo sutil */
+}
+.search-link:hover {
+    background-color: var(--sidebar-link-active-bg); /* Más oscuro al pasar */
+}
+
+.search-hint {
+    margin-left: auto; /* Empuja a la derecha */
+    font-size: 11px;
+    color: var(--sidebar-text-muted-color);
+    background-color: var(--sidebar-bg-color);
+    border: 1px solid var(--sidebar-border-color);
+    border-radius: 4px;
+    padding: 1px 4px;
+}
+.app-sidebar.collapsed .search-hint {
+    display: none;
+}
+
+
+/* --- Navegación y Links --- */
+.sidebar-nav {
+    flex-grow: 1; /* Ocupa el espacio restante */
+    overflow-y: auto; /* Scroll si hay muchos items */
+    overflow-x: hidden;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo general de los links */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px; /* Padding interno de los links */
+    margin: 2px 8px; /* Margen externo de los links */
+    border-radius: var(--app-border-radius);
+    text-decoration: none;
+    color: var(--sidebar-text-color);
+    white-space: nowrap; /* Evitar que el texto se parta */
+    transition: background-color 0.1s ease, color 0.1s ease;
+    cursor: pointer;
+}
+
+.sidebar-link .link-icon {
+    color: var(--sidebar-text-muted-color);
+    margin-right: 12px; /* Espacio entre icono y texto */
+    flex-shrink: 0; /* Evita que el icono se encoja */
+    transition: color 0.1s ease;
+}
+
+.sidebar-link .link-text {
+    font-size: 14px;
+    flex-grow: 1; /* Ocupa espacio */
+    transition: opacity 0.1s ease; /* Transición suave para ocultar texto */
+}
+
+/* Ocultar texto cuando está colapsado */
+.app-sidebar.collapsed .sidebar-link .link-text {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+/* Centrar icono cuando está colapsado */
+.app-sidebar.collapsed .sidebar-link {
+     margin: 2px 4px; /* Ajustar margen colapsado */
+     padding: 8px; /* Padding diferente colapsado */
+     justify-content: center; /* Centrar icono */
+}
+.app-sidebar.collapsed .sidebar-link .link-icon {
+     margin-right: 0;
+}
+
+
+/* Estado Hover */
+.sidebar-link:hover {
+    background-color: var(--sidebar-link-hover-bg);
+    color: var(--sidebar-text-color); /* O mantener el mismo color */
+}
+.sidebar-link:hover .link-icon {
+    color: var(--sidebar-text-color); /* Icono más oscuro al pasar */
+}
+
+/* Estado Activo */
+.sidebar-link.active {
+    background-color: var(--sidebar-link-active-bg);
+    color: var(--sidebar-link-active-text);
+    font-weight: 500; /* Opcional: texto activo más grueso */
+}
+.sidebar-link.active .link-icon {
+    color: var(--sidebar-link-active-text); /* Icono del color del texto activo */
+}
+
+/* --- Cabeceras de Sección (Opcional) --- */
+.sidebar-section-header {
+    padding: 16px 16px 8px 16px; /* Espaciado */
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--sidebar-text-muted-color);
+    text-transform: uppercase; /* Mayúsculas */
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+.app-sidebar.collapsed .sidebar-section-header {
+    /* Podrías mostrar solo un icono o nada */
+    padding: 16px 0 8px 0;
+    text-align: center;
+}
+.app-sidebar.collapsed .sidebar-section-header .section-title {
+     display: none;
+}
+
+
+/* --- Footer (Opcional) --- */
+.sidebar-footer {
+     padding: 8px; /* Padding para items del footer */
+     /* Podría tener un borde superior */
+     /* border-top: 1px solid var(--sidebar-border-color); */
+     /* margin-top: 16px; */
+}

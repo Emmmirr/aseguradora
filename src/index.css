@@ -1,0 +1,363 @@
+/* Estilos globales */
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --success-color: #198754;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #0dcaf0;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --body-bg: #f5f5f5;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --md-sys-color-surface-container: #f0f3fa; /* Un color contenedor claro */
+  --md-sys-color-surface: #f8faff; /* Superficie principal clara */
+  --md-sys-color-surface-lowest: #ffffff; /* El más claro, blanco */
+  --md-sys-color-on-surface: #1a1c1e; /* Texto sobre superficies claras */
+  --md-sys-color-primary: #0061a4; /* Color primario */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  background-color: var(--body-bg);
+  color: var(--dark-color);
+  font-size: 16px;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 80px;
+  width: 100%;
+  margin-left: var(--sidebar-width-expanded); /* Usa la variable CSS */
+    transition: margin-left 0.2s ease-in-out;
+
+    overflow-y: auto;   /* Permite el scroll VERTICAL para TODO el contenido de la página */
+    overflow-x: hidden; /* ¡IMPORTANTE! Previene el scroll HORIZONTAL a nivel de toda la página */
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.main-content.sidebar-collapsed {
+  margin-left: var(--sidebar-width-collapsed); /* Usa la variable CSS */
+}
+
+
+
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--dark-color);
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  border-radius: 10px 10px 0 0 !important;
+  padding: 15px 20px;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+}
+
+.table {
+  vertical-align: middle;
+}
+
+.form-control, .form-select {
+  padding: 0.5rem 0.75rem;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Navbar personalizado */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+/* Footer personalizado */
+.footer {
+  padding: 15px;
+  background-color: var(--dark-color);
+  color: white;
+  text-align: center;
+}
+
+/* Estilos para acciones */
+.action-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  .card-body {
+    padding: 15px;
+  }
+  
+  .table {
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Para asegurar que el contenido ocupe toda la pantalla */
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+/* Estilos adicionales para mejorar la apariencia */
+.badge {
+  padding: 0.5em 0.7em;
+  font-weight: 500;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(13, 110, 253, 0.05);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Estilos para tarjetas de datos */
+.data-card {
+  border-left: 4px solid var(--primary-color);
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 15px;
+}
+
+.data-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 5px;
+}
+
+.data-card-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Estilos para los encabezados de sección */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 0;
+}
+
+/* Estilos para las alertas */
+.alert {
+  border-radius: 5px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para los botones de acción */
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Estilos para la paginación */
+.pagination {
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.pagination .page-item .page-link {
+  color: var(--primary-color);
+  border-radius: 5px;
+  margin: 0 3px;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+/* Estilos para los campos de búsqueda */
+.search-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: var(--secondary-color);
+}
+
+.search-input {
+  padding-left: 35px;
+}
+
+/* Personalización adicional para que la app ocupe toda la pantalla */
+.container-fluid {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 1200px) {
+  .container-fluid {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+
+.bg-label-warning {
+  background-color: rgba(255, 171, 0, 0.16) !important;
+  color: #ffab00 !important;
+}
+
+.bg-label-success {
+  background-color: rgba(40, 199, 111, 0.16) !important;
+  color: #28c76f !important;
+}
+
+.bg-label-danger {
+  background-color: rgba(234, 84, 85, 0.16) !important;
+  color: #ea5455 !important;
+}
+
+
+/* En tu archivo CSS (donde definiste :root) */
+
+.mi-modal-content-box {
+  /* Estilos principales de .content-box */
+  background: var(--md-sys-color-surface-container); /* Fondo base */
+  border-radius: 24px; /* El borde redondeado */
+  border: none; /* Anula el borde por defecto de Bootstrap */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Opcional: una sombra suave */
+  overflow: hidden; /* IMPORTANTE: para que el contenido interno respete el border-radius */
+
+  /* Ajustes para encajar con Bootstrap modal */
+  display: flex; /* Mantenemos flex para controlar header/body/footer */
+  flex-direction: column; /* Header, body, footer se apilan verticalmente */
+  /* width: 100%; height: auto; son manejados por .modal-dialog */
+  /* gap: 8px; - Esto es para el espacio ENTRE header/body/footer.
+     Bootstrap lo maneja con padding/margin. Ajustaremos el padding interno. */
+}
+
+/* Ajustar el padding del header y body para que coincida con los 24px de .content-box */
+/* Y quitar bordes internos si no los quieres */
+.mi-modal-content-box .modal-header {
+  background-color: transparent; /* Hacer transparente para ver el fondo del content-box */
+  /* O darle un color específico: background: var(--md-sys-color-primary); color: white; */
+  border-bottom: none; /* Quitar la línea del header de Bootstrap */
+  padding: 16px 24px; /* Ajustar padding (ej: 24px a los lados) */
+   color: var(--md-sys-color-on-surface); /* Asegurar color de texto adecuado */
+}
+
+ /* Opcional: asegurar color del título */
+ .mi-modal-content-box .modal-header .modal-title {
+     color: var(--md-sys-color-on-surface); /* O el color específico del header si tiene fondo */
+ }
+
+ /* Opcional: asegurar color/estilo del botón cerrar */
+ .mi-modal-content-box .modal-header .btn-close {
+     /* Si el header es oscuro, necesitas el btn-close blanco */
+     /* filter: invert(1) grayscale(100%) brightness(200%); */
+ }
+
+
+.mi-modal-content-box .modal-body {
+  padding: 24px; /* ¡Aquí aplicamos el padding principal! */
+  color: var(--md-sys-color-on-surface); /* Asegurar color de texto adecuado */
+  /* El display:flex/gap:8px de .content-box aplicaría aquí
+     si quisieras que los elementos DIRECTOS dentro del body tuvieran ese layout.
+     El formulario <ClienteComponent> ya tiene su propio layout (row/col). */
+  /* Por ejemplo, si tuvieras varios párrafos directos en el body:
+     display: flex;
+     flex-direction: column;
+     gap: 8px;
+  */
+}
+
+/* Implementar las variaciones de color */
+.mi-modal-content-box.light-color {
+  background: var(--md-sys-color-surface);
+}
+
+.mi-modal-content-box.lowest-color {
+  background: var(--md-sys-color-surface-lowest);
+}
+
+.mi-modal-content-box.transparent {
+  background: transparent;
+  box-shadow: none; /* Sin sombra si es transparente */
+}
+
+
+
+
