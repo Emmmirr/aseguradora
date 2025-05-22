@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const PLAN_API_BASE_URL = "http://164.92.93.169/api/planes";
+const PLAN_API_BASE_URL = "/api/planes";
 
 export const obtenerTodosPlanes = () => {return axios.get(PLAN_API_BASE_URL);};
 

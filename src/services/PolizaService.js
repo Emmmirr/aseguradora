@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const POLIZA_API_BASE_URL = "http://164.92.93.169/api/polizas";
+const POLIZA_API_BASE_URL = "/api/polizas";
 
 export const obtenerTodasPolizas = () => {return axios.get(POLIZA_API_BASE_URL);};
 

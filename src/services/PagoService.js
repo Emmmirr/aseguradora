@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const PAGO_API_BASE_URL = "https://164.92.93.169/api/pagos";
+const PAGO_API_BASE_URL = "/api/pagos";
 
 export const obtenerTodosPagos = () => {return axios.get(PAGO_API_BASE_URL);};
 

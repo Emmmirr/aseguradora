@@ -1,23 +1,40 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
-
-
-
   plugins: [react()],
-
   server: {
-    host: '0.0.0.0', 
+    host: '0.0.0.0',
+    proxy: {
+      '/api/clientes': {
+        target: 'http://4.246.104.44',
+        changeOrigin: true
+      },
+      '/api/reclamaciones': {
+        target: 'http://4.246.104.44',
+        changeOrigin: true
+      },
+      '/api/planes': {
+        target: 'http://164.92.93.169',
+        changeOrigin: true
+      },
+      '/api/pagos': {
+        target: 'http://164.92.93.169',
+        changeOrigin: true
+      },
+      '/api/polizas': {
+        target: 'http://164.92.93.169',
+        changeOrigin: true
+      }
+    }
   },
   preview: {
-    host: '0.0.0.0', 
+    host: '0.0.0.0',
+    port: 8080,
     allowedHosts: [
       'aseguradora-a63xn.ondigitalocean.app',
       'localhost',
       '.ondigitalocean.app'
     ]
   }
-
 })

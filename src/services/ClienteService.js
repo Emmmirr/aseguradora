@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const CLIENTE_API_BASE_URL = "https://4.246.104.44/api/clientes";
+const CLIENTE_API_BASE_URL = "/api/clientes";
 
 export const obtenerTodosClientes = () => {return axios.get(CLIENTE_API_BASE_URL);};
 

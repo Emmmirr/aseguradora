@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const RECLAMACION_API_BASE_URL = "https://4.246.104.44/api/reclamaciones";
+const RECLAMACION_API_BASE_URL = "/api/reclamaciones";
 
 export const obtenerTodasReclamaciones = () => {return axios.get(RECLAMACION_API_BASE_URL);};
 
