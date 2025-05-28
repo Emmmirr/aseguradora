@@ -7,11 +7,11 @@ export default defineConfig({
     host: '0.0.0.0',
     proxy: {
       '/api/clientes': {
-        target: 'http://4.246.104.44',
+        target: 'https://4.246.104.44',
         changeOrigin: true
       },
       '/api/reclamaciones': {
-        target: 'http://4.246.104.44',
+        target: 'http://164.92.93.169:8443',
         changeOrigin: true
       },
       '/api/planes': {
@@ -19,7 +19,7 @@ export default defineConfig({
         changeOrigin: true
       },
       '/api/pagos': {
-        target: 'http://164.92.93.169',
+        target: 'http://164.92.93.169:8443',
         changeOrigin: true
       },
       '/api/polizas': {
